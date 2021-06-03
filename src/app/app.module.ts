@@ -37,7 +37,7 @@ import { mapReduceD3Component } from './mapReduceD3/mapReduceD3.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule,  
     HttpClientModule,
     AngularMaterialModule,
     PostsModule,
@@ -49,7 +49,7 @@ import { mapReduceD3Component } from './mapReduceD3/mapReduceD3.component';
     WebSocketModule,
 
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: 'AIzaSyAdZ6eDpKLBYDQGVaeG4qHc3NcQlyHSS7I' //need google billing account for the map to fully work
     })
   ],
   providers: [
