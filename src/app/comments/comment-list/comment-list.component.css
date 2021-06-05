@@ -30,3 +30,34 @@ form-control {
   border: 2px groove;
   border-radius: 4px;
 }
+
+#post_content {
+  white-space:pre-line;
+  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Mate', serif;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#post_title{
+  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Mate', serif;
+}
+
+mat-expansion-panel-header{
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+mat-expansion-panel {
+  background-color: white;
+  color: #212529;
+}
+mat-panel-description{
+  margin-top: 10px;
+  color: black;
+}
+
+button{
+  font-family: 'Julius Sans One';
+  font-weight: bold;
+}

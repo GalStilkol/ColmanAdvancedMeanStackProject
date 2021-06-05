@@ -11,11 +11,19 @@ input[type="file"] {
   visibility: hidden;
 }
 
-.image-preview {
-  height: 5rem;
-  margin: 1rem 0;
+.mat-card{
+  background-color: white;
+  color: black;
 }
 
-.image-preview img {
-  height: 100%;
+.mat-form-field{
+  caret-color: black;
 }
+
+#submit_button{
+  margin-bottom: 15px;
+  background-color: #4caf50;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  font-family: 'Julius Sans One';
+}
+
