@@ -18,6 +18,14 @@ body {
 }
 .mat-form-field-underline{
   background-color:black !important;
+  caret-color: black;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color:black !important;
+}
+.mat-input-element{
+  caret-color: black;
 }
 .mat-card{
   box-shadow: 1px -1px 20px -1px rgb(93 50 50 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
