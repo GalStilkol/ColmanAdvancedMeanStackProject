@@ -76,9 +76,9 @@ mat-panel-description{
 
 }
 
-::ng-deep .mat-form-field-appearance-legacy {
+/* ::ng-deep .mat-form-field-appearance-legacy {
   color: white;
-}
+} */
 
 ::ng-deep .mat-option-text {
   color: white;
@@ -102,4 +102,9 @@ mat-panel-description{
 }
 .mat-paginator, .mat-paginator-page-size .mat-select-trigger, .mat-form-field, ::ng-deep .mat-option-text {
   font-family: 'Julius Sans One';
+}
+
+button{
+  font-family: 'Julius Sans One';
+  font-weight: bold;
 }

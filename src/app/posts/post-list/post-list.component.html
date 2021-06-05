@@ -15,18 +15,22 @@
     <mat-panel-description>
       Posted By: {{ post.userName }} ,On: {{ post.postDate }}
     </mat-panel-description>
-    <p id = post_content>{{ post.content }}</p>
+    <p id=post_content>{{ post.content }}</p>
     <div class="post-image" *ngIf="post.imagePath!=null">
       <img [src]="post.imagePath" [alt]="post.title">
     </div>
     <mat-action-row>
-      <a mat-button color="primary" [routerLink]="['comments/list/', post.id]">Post comments</a>
+      <button class="nav-link" mat-button [routerLink]="['comments/list/', post.id]">Post Comments</button>
+      <!-- <a mat-button [routerLink]="['comments/list/', post.id]">Post comments</a> -->
 
       <div *ngIf="userIsAuth">
-        <a mat-button color="primary" [routerLink]="['comments/create/', post.id]">COMMENT</a>
+        <button class="nav-link" mat-button [routerLink]="['comments/create/', post.id]">COMMENT</button>
+        <!-- <a mat-button [routerLink]="['comments/create/', post.id]">COMMENT</a> -->
 
         <a *ngIf="userId == post.creator">
-          <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+          <button class="nav-link" mat-button [routerLink]="['/edit', post.id]">EDIT</button>
+          <!-- <a mat-button [routerLink]="['/edit', post.id]">EDIT</a> -->
+
           <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
         </a>
 
@@ -38,6 +42,6 @@
   (page)="onChangePage($event)" *ngIf="posts.length > 0"></mat-paginator>
 <p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>
 
-<!-- <p class="form-control">Current post create: {{curentCreateTimes}} &nbsp;&nbsp; ● &nbsp;&nbsp;  Current post delete: {{currentDeleteTimes}}</p> -->
+<p class="form-control">Current post create: {{curentCreateTimes}} &nbsp;&nbsp; ● &nbsp;&nbsp;  Current post delete: {{currentDeleteTimes}}</p>
 
-<!-- <a class="form-control" *ngIf="curentCreateTimes>0 && currentDeleteTimes>0"> &nbsp;&nbsp;Created versus deleted:&nbsp;{{(curentCreateTimes/currentDeleteTimes)*100}}% </a> -->
+<a class="form-control" *ngIf="curentCreateTimes>0 && currentDeleteTimes>0"> &nbsp;&nbsp;Created versus deleted:&nbsp;{{(curentCreateTimes/currentDeleteTimes)*100}}% </a>
