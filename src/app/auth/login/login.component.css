@@ -6,3 +6,19 @@ textarea {
 mat-spinner {
   margin: auto;
 }
+
+#submit_button{
+  margin-bottom: 15px;
+  background-color: #4caf50;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  font-family: 'Julius Sans One';
+}
+
+.mat-card{
+  background-color: white;
+  color: black;
+}
+
+.mat-form-field{
+  caret-color: black;
+}
