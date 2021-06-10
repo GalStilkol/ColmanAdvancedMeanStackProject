@@ -9,7 +9,7 @@ const scrapSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  summery: {
+  summary: {
     type: String,
     required: false
   },

@@ -32,7 +32,7 @@ request(urlToScrap + String(urlMid + index) + urlEnd, function(error, response, 
   else {
     year = new String($('.title_wrapper > h1').text().split('(')[1].split(')')[0]);
   };
-  summery = new String($('.summary_text').text().trim());
+  summary = new String($('.summary_text').text().trim());
   len = new String($('.subtext > time').text().trim());
   if(len == String("")){
     len = "Not Listed";
@@ -40,14 +40,14 @@ request(urlToScrap + String(urlMid + index) + urlEnd, function(error, response, 
   director = new String($('.credit_summary_item > a').first('Director').text());
 
 
- if (String(summery).includes('Add a Plot')) {
-  summery = "No Summery Exists";
+ if (String(summary).includes('Add a Plot')) {
+  summary = "No summary Exists";
 }
 
   scraper = new Scraper({
     title: title,
     year: year,
-    summery: summery,
+    summary: summary,
     len: len,
     director: director
   });

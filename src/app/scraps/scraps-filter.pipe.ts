@@ -15,7 +15,7 @@ export class ScrapFilterPipe implements PipeTransform {
     searchTerm = searchTerm.toLowerCase();
     const matches = [];
     posts.forEach(post => {
-      const postStr = post.title.toLowerCase() + post.summery.toLowerCase() + post.director;
+      const postStr = post.title.toLowerCase() + post.summary.toLowerCase() + post.director;
       const splitedStr = postStr.split(/(?:,| )+/);
       const ac = new AhoCorasick(splitedStr);
       const result = ac.search(searchTerm);
