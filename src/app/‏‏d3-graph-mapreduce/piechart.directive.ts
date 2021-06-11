@@ -38,7 +38,7 @@ export class PiechartDirectiveMap implements OnInit {
   private initSvg() {
 
     this.color = d3Scale.scaleOrdinal()
-      .range(['#98abc5', '#8a89a6', '#7b6888', '#6b486b', '#a05d56', '#d0743c', '#ff8c00']);
+      .range(['#daffd7','#feff77', '#f6afcc', '#b4f2f1', '#89b2d8']);
     this.arc = d3Shape.arc()
       .outerRadius(this.radius - 10)
       .innerRadius(0);
@@ -61,7 +61,10 @@ export class PiechartDirectiveMap implements OnInit {
       .enter().append('g')
       .attr('class', 'arc');
     g.append('path').attr('d', this.arc)
-      .style('fill', (d: any) => this.color(d.data._id));
+      .style('fill', (d: any) => this.color(d.data._id))
+      .attr("stroke", "black")
+      .style("stroke-width", "2px")
+      .style("opacity", 0.8);
     g.append('text').attr('transform', (d: any) => 'translate(' + this.labelArc.centroid(d) + ')')
       .attr('dy', '.35em')
       .text((d: any) => (d.data._id + ': ' + d.data.value));

@@ -22,11 +22,11 @@
         <a mat-button routerLink="map" routerLinkActive="mat-accent"><strong>Map</strong></a>
       </li>
       <li *ngIf="userIsAuth&&isAdmin">
-          <a mat-button routerLink="d3" routerLinkActive="mat-accent"><strong>D3 using groupBy</strong></a>
+          <a mat-button routerLink="d3" routerLinkActive="mat-accent"><strong>Statistics</strong></a>
       </li>
-      <li *ngIf="userIsAuth&&isAdmin">
+      <!-- <li *ngIf="userIsAuth&&isAdmin">
         <a mat-button routerLink="mapReduceD3" routerLinkActive="mat-accent"><strong>D3 using mapReduce</strong></a>
-      </li>
+      </li> -->
       <li *ngIf="userIsAuth">
         <a mat-button routerLink="scraps" routerLinkActive="mat-accent"><strong>More Recipes</strong></a>
       </li>

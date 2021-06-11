@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../posts/posts.service';
 import { Post } from '../posts/post.model';
 
-
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'postd3',
