@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CommentContentFilterPipe } from './comment-content-filter.pipe';
 import { CommentTitleFilterPipe } from './comment-title-filter.pipe';
+import { CommentUserNameFilterPipe } from './comment-userName-filter.pipe';
+
 
 
 @NgModule({
@@ -15,7 +17,8 @@ import { CommentTitleFilterPipe } from './comment-title-filter.pipe';
     CommentCreateComponent,
     CommentListComponent,
     CommentContentFilterPipe,
-    CommentTitleFilterPipe
+    CommentTitleFilterPipe,
+    CommentUserNameFilterPipe
   ],
   imports: [
     CommonModule,

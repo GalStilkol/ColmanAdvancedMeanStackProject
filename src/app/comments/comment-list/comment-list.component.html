@@ -2,11 +2,13 @@
 <div class="form-group">
   <input type="text" class="form-control" placeholder="Search By Title" [(ngModel)]="searchTermByTitle" />
   <input style ="margin-top: 10px;" type="text" class="form-control" placeholder="Search By Content" [(ngModel)]="searchTermByContent" />
+  <input style ="margin-top: 10px;" type="text" class="form-control" placeholder="Search By User Name" [(ngModel)]="searchTermByUserName" />
+
 </div>
 <mat-accordion multi="true" *ngIf="commentsOfPost.length > 0 && !isLoading">
 
   <mat-expansion-panel
-    *ngFor="let comment of commentsOfPost.slice().reverse() | commentTitleFilter:searchTermByTitle | commentContentFilter:searchTermByContent">
+    *ngFor="let comment of commentsOfPost.slice().reverse() | commentTitleFilter:searchTermByTitle | commentContentFilter:searchTermByContent | commentUserNameFilter:searchTermByUserName">
     <mat-expansion-panel-header>
       <strong id=post_title>{{ comment.title }}</strong>
     </mat-expansion-panel-header>
