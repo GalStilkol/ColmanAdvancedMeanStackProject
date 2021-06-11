@@ -20,7 +20,14 @@ form-control {
   border: 2px groove;
   border-radius: 4px;
 }
+.recipe_image {
+  width: 50%
+}
 
+.recipe_image img {
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
 #recipe_content {
   white-space:pre-line;
   font-family: 'Julius Sans One', sans-serif;

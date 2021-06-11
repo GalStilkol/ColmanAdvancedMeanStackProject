@@ -18,8 +18,8 @@ export class ScrapFilterPipe implements PipeTransform {
     const matches = [];
     posts.forEach(post => {
       const splitedTitle = post.title.toLowerCase().split(/(?:,| )+/);
-      const splitedDirector = post.director.toLowerCase().split(/(?:,| )+/);
-      const keys = splitedTitle.concat(splitedDirector);
+      const splitedDescription = post.description.toLowerCase().split(/(?:,| )+/);
+      const keys = splitedTitle.concat(splitedDescription);
       const keysNoSpaces = keys.map(key =>key.trim());
       // console.log(keysNoSpaces);
       const ac = new AhoCorasick(keysNoSpaces);
