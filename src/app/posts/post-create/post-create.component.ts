@@ -27,6 +27,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
   addImag = false;
   latitude: string;
   longitude: string;
+  estimatedTime:string;
   constructor(
     public postsService: PostsService,
     public route: ActivatedRoute,
@@ -47,6 +48,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
         validators: [Validators.required, Validators.minLength(3)]
       }),
       content: new FormControl(null, { validators: [Validators.required] }),
+      estimatedTime: new FormControl(null, { validators: [Validators.required] }),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType]
@@ -70,13 +72,16 @@ export class PostCreateComponent implements OnInit, OnDestroy {
             postDate: null,
 
             latitude: postData.latitude,
-            longitude: postData.longitude
+            longitude: postData.longitude,
+            estimatedTime:postData.estimatedTime
           };
 
           this.form.setValue({
             title: this.post.title,
             content: this.post.content,
+            estimatedTime:this.post.estimatedTime,
             image: this.post.imagePath
+            //denis
           });
         });
       } else {
@@ -100,7 +105,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
 
   onSavePost() {
     if (this.form.value.title == null || this.form.value.content == null ||
-      this.form.value.title === '' || this.form.value.content === '') {
+      this.form.value.title === '' || this.form.value.content === ''|| this.form.value.estimatedTime==null ||this.form.value.estimatedTime==='') {
       return;
     }
     this.isLoading = true;
@@ -119,7 +124,9 @@ export class PostCreateComponent implements OnInit, OnDestroy {
         this.form.value.image,
         this.addImag,
         this.latitude,
-        this.longitude
+        this.longitude,
+        this.form.value.estimatedTime
+        
       );
 
     } else {
@@ -130,7 +137,8 @@ export class PostCreateComponent implements OnInit, OnDestroy {
         this.form.value.image,
         this.addImag,
         this.latitude,
-        this.longitude
+        this.longitude,
+        this.form.value.estimatedTime
       );
     }
     this.form.reset();

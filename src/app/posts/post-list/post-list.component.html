@@ -13,9 +13,14 @@
       <strong id=post_title>{{ post.title }}</strong>
     </mat-expansion-panel-header>
     <mat-panel-description>
-      Posted By: {{ post.userName }} ,On: {{ post.postDate }}
+      Posted By: {{ post.userName }} ,On: {{ post.postDate }},Estimated time:{{post.estimatedTime}}
+      <br>
+
+     
     </mat-panel-description>
     <p id=post_content>{{ post.content }}</p>
+    <!-- <p id=post_estimatedTime>{{ post.estimatedTime }}</p> -->
+
     <div class="post-image" *ngIf="post.imagePath!=null">
       <img [src]="post.imagePath" [alt]="post.title">
     </div>
@@ -45,3 +50,5 @@
 <p class="form-control">Current post create: {{curentCreateTimes}} &nbsp;&nbsp; ● &nbsp;&nbsp;  Current post delete: {{currentDeleteTimes}}</p>
 
 <a class="form-control" *ngIf="curentCreateTimes>0 && currentDeleteTimes>0"> &nbsp;&nbsp;Created versus deleted:&nbsp;{{(curentCreateTimes/currentDeleteTimes)*100}}% </a>
+
+<!-- denis -->

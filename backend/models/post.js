@@ -34,6 +34,10 @@ const postSchema = mongoose.Schema({
   longitude: {
     type: String,
     require: false
+  },
+  estimatedTime: {
+    type: String,
+    require: false
   }
 });
 

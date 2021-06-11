@@ -10,6 +10,7 @@ exports.createComment = (req, res, next) => {
     creator: req.userData.userId,
     userName: req.userData.email.split('@')[0],
     commentDate: new Date().toLocaleString()
+    
   });
   comment.save().then(createdComment => {
       res.status(201).json({
@@ -35,6 +36,7 @@ exports.updateComment = (req, res, next) => {
     content: req.body.content,
     creator: req.userData.userId,
     userName: req.userData.email.split('@')[0],
+    
   });
   Comment.updateOne({
       _id: req.params.id,
