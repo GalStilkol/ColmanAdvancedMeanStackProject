@@ -18,15 +18,19 @@ mongoose.connect("mongodb://localhost:27017/tester")
 }).catch(()=>{
   console.log('Connection failed');
 });
+startindex =23750;
+amounttoshow= 50;
 
+for(index =startindex;index <startindex+amounttoshow;index++){
+  recipeurl="https://www.allrecipes.com/recipe/";
 
 async function someAsyncFunc() {
   
-  let recipe = await recipeScraper("https://www.allrecipes.com/recipe/23751/soft-molasses-cookies-v/");
+  let recipe = await recipeScraper(recipeurl+index);
 }
 
-recipeScraper("https://www.allrecipes.com/recipe/23751/soft-molasses-cookies-v/").then(recipe => {
-  console.log("success~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+recipeScraper(recipeurl+index).then(recipe => {
+  console.log("successfully uploaded recipe no:"+index)
   console.log(recipe)
   scraper = new Scraper({
     title: recipe.name,
@@ -45,9 +49,10 @@ recipeScraper("https://www.allrecipes.com/recipe/23751/soft-molasses-cookies-v/"
   });
 
 }).catch(error => {
-  console.log("Error~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+  console.log("Error at:" +index)
   console.log(error)
 });
+}
 
 console.log("finishedbe4async")
 
