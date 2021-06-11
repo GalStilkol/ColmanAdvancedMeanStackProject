@@ -2,10 +2,13 @@ request = require('request');
 cheerio = require('cheerio');
 fs = require('fs');
 const Scraper = require('../../backend/models/‏‏scrap');
+const recipeScraper = require("recipe-scraper");
 
 
 const express = require("express");
 const bodyParser = require("body-parser");
+
+
 
 const mongoose = require('mongoose');
 //mongoose.connect("mongodb+srv://Fox:"+ 'Wb6CZi82Z8t5u9dO' +"@cluster0-ugkpd.mongodb.net/node-angular?retryWrites=true&w=majority")
@@ -15,51 +18,44 @@ mongoose.connect("mongodb://localhost:27017/tester")
 }).catch(()=>{
   console.log('Connection failed');
 });
+startindex =23750;
+amounttoshow= 50;
 
-urlToScrap = 'https://www.imdb.com/title/tt00';
-urlMid = 30101;
-urlEnd = '/';
+for(index =startindex;index <startindex+amounttoshow;index++){
+  recipeurl="https://www.allrecipes.com/recipe/";
 
-for (index = 0;index < 200 ;index++) {
-request(urlToScrap + String(urlMid + index) + urlEnd, function(error, response, body) {
-
-  $ = cheerio.load(body);
-
-  title = new String($('.title_wrapper > h1').text().split('(')[0]);
-  if ($('.title_wrapper > h1').text().split('(')[1] == undefined){
-    year = 'undefined';
-  }
-  else {
-    year = new String($('.title_wrapper > h1').text().split('(')[1].split(')')[0]);
-  };
-  summary = new String($('.summary_text').text().trim());
-  len = new String($('.subtext > time').text().trim());
-  if(len == String("")){
-    len = "Not Listed";
-  }
-  director = new String($('.credit_summary_item > a').first('Director').text());
-
-
- if (String(summary).includes('Add a Plot')) {
-  summary = "No summary Exists";
+async function someAsyncFunc() {
+  
+  let recipe = await recipeScraper(recipeurl+index);
 }
 
+recipeScraper(recipeurl+index).then(recipe => {
+  console.log("successfully uploaded recipe no:"+index)
+  console.log(recipe)
   scraper = new Scraper({
-    title: title,
-    year: year,
-    summary: summary,
-    len: len,
-    director: director
+    title: recipe.name,
+    description: recipe.description,
+    ingredients: recipe.ingredients,
+    instructions: recipe.instructions,
+    servings: recipe.servings,
+    imagePath : recipe.image
+
+
   });
 
   scraper.save().then(result => {
   })
   .catch(err => {
   });
-  });
+
+}).catch(error => {
+  console.log("Error at:" +index)
+  console.log(error)
+});
 }
 
-console.log('Finished the loop');
+console.log("finishedbe4async")
+
 
 
 /* example code to extract information

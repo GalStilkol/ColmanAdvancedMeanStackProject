@@ -34,13 +34,24 @@
 
     <mat-expansion-panel-header>
       <strong id=recipe_name>{{ scrap.title }}</strong>
+  
     </mat-expansion-panel-header>
-    <div id=recipe_content>
-      <strong>Year:</strong> <p>{{ scrap.year }}</p><br>
-      <strong>Summary:</strong> <br><p>{{ scrap.summary }}</p><br>
-      <strong>Len:</strong> <p>{{ scrap.len }}</p><br>
-      <strong>Director:</strong> <p>{{scrap.director}}</p>
-    </div>
+    <p id=recipe_content>
+      <strong>Description:</strong> {{ scrap.description }}<br>
+      <br>
+      <strong>ingredients:</strong> {{ scrap.ingredients }}<br>
+      <br>
+
+      <strong>instructions:</strong> {{ scrap.instructions }}<br>
+      <br>
+      <strong>servings:</strong> {{ scrap.servings }}<br>
+      <br>
+      <img [src]="scrap.imagePath" [alt]="scrap.title">
+
+      <!-- <strong>Summary:</strong> {{ scrap.summary }}<br>
+      <strong>Len:</strong> {{ scrap.len }}<br>
+      <strong>Director:</strong> {{scrap.director}} -->
+    </p>
 
   </mat-expansion-panel>
 </mat-accordion>

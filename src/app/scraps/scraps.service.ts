@@ -90,10 +90,15 @@ export class ScrapsService {
             return {
               id: scrap._id,
               title: scrap.title,
-              year: scrap.year,
-              summary: scrap.summary,
-              len: scrap.len,
-              director: scrap.director
+              description : scrap.description,
+              ingredients: scrap.ingredients,
+              instructions : scrap.instructions,
+              servings: scrap.servings,
+              imagePath:scrap.imagePath
+              // year: scrap.year,
+              // summary: scrap.summary,
+              // len: scrap.len,
+              // director: scrap.director
             };
           }),
           maxScraps: scrapDate.maxScraps
