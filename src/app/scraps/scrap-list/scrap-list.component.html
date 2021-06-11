@@ -33,12 +33,23 @@
   <mat-expansion-panel *ngFor="let scrap of scraps.slice().reverse() | ScrapFilter:searchStr">
     <mat-expansion-panel-header>
       <strong id=recipe_name>{{ scrap.title }}</strong>
+  
     </mat-expansion-panel-header>
     <p id=recipe_content>
-      <strong>Year:</strong> {{ scrap.year }}<br>
-      <strong>Summary:</strong> {{ scrap.summary }}<br>
+      <strong>Description:</strong> {{ scrap.description }}<br>
+      <br>
+      <strong>ingredients:</strong> {{ scrap.ingredients }}<br>
+      <br>
+
+      <strong>instructions:</strong> {{ scrap.instructions }}<br>
+      <br>
+      <strong>servings:</strong> {{ scrap.servings }}<br>
+      <br>
+      <img [src]="scrap.imagePath" [alt]="scrap.title">
+
+      <!-- <strong>Summary:</strong> {{ scrap.summary }}<br>
       <strong>Len:</strong> {{ scrap.len }}<br>
-      <strong>Director:</strong> {{scrap.director}}
+      <strong>Director:</strong> {{scrap.director}} -->
     </p>
 
   </mat-expansion-panel>
