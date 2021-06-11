@@ -26,14 +26,16 @@ exports.createPost = (req, res, next) => {
     userName: req.userData.email.split('@')[0],
     postDate: new Date().toLocaleString(),
     latitude: req.body.latitude,
-    longitude: req.body.longitude
+    longitude: req.body.longitude,
+    estimatedTime: req.body.estimatedTime
   });
   post.save().then(createdPost => {
       res.status(201).json({
         message: "Post added successfully",
         post: {
           ...createdPost,
-          id: createdPost._id
+          id: createdPost._id,
+          estimatedTime:createdPost.estimatedTime
         }
       });
     })
@@ -59,7 +61,8 @@ exports.updatePost = (req, res, next) => {
     creator: req.userData.userId,
     userName: req.userData.email.split('@')[0],
     latitude: req.body.latitude,
-    longitude: req.body.longitude
+    longitude: req.body.longitude,
+    estimatedTime:req.estimatedTime
   });
   Post.updateOne({
       _id: req.params.id,

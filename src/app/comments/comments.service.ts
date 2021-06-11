@@ -31,7 +31,8 @@ export class CommentsService {
               creator: comment.creator,
               userName: comment.userName,
               commentDate: comment.commentDate,
-              postId: comment.postId
+              postId: comment.postId,
+              
             };
           }),
           maxComments: commentDate.maxComments

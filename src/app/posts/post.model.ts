@@ -9,4 +9,5 @@ export interface Post {
   postDate: string;
   latitude: string;
   longitude: string;
+  estimatedTime :string;
 }
