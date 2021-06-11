@@ -20,7 +20,7 @@
 </mat-accordion>
 <mat-paginator [length]="totoalScraps" [pageSize]="scrapsPerPage" [pageSizeOptions]="pageSizeOptions"
   (page)="onChangePage($event)" *ngIf="scraps.length > 0"></mat-paginator>
-<p class="info-text mat-body-1" *ngIf="scraps.length <= 0 && !isLoading">No scraps added yet!</p> -->
+<p class="info-text mat-body-1" *ngIf="scraps.length <= 0 && !isLoading">No recipes added yet!</p> -->
 
 
 <mat-spinner *ngIf="isLoading"></mat-spinner>
@@ -31,15 +31,16 @@
 
 <mat-accordion multi="true" *ngIf="scraps.length > 0 && !isLoading">
   <mat-expansion-panel *ngFor="let scrap of scraps.slice().reverse() | ScrapFilter:searchStr">
+
     <mat-expansion-panel-header>
       <strong id=recipe_name>{{ scrap.title }}</strong>
     </mat-expansion-panel-header>
-    <p id=recipe_content>
-      <strong>Year:</strong> {{ scrap.year }}<br>
-      <strong>Summary:</strong> {{ scrap.summary }}<br>
-      <strong>Len:</strong> {{ scrap.len }}<br>
-      <strong>Director:</strong> {{scrap.director}}
-    </p>
+    <div id=recipe_content>
+      <strong>Year:</strong> <p>{{ scrap.year }}</p><br>
+      <strong>Summary:</strong> <br><p>{{ scrap.summary }}</p><br>
+      <strong>Len:</strong> <p>{{ scrap.len }}</p><br>
+      <strong>Director:</strong> <p>{{scrap.director}}</p>
+    </div>
 
   </mat-expansion-panel>
 </mat-accordion>
