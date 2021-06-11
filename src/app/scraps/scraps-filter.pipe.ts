@@ -7,7 +7,9 @@ declare var require: any;
   name: 'ScrapFilter'
 })
 export class ScrapFilterPipe implements PipeTransform {
+  // using AhoCorasick which looking for the keys (each of the posts) as substring of the searchTerm
   transform(posts: Scrap[], searchTerm: string): Scrap[] {
+    // console.log(searchTerm);
     const AhoCorasick = require('ahocorasick');
     if (!posts || !searchTerm) {
       return posts;
@@ -15,11 +17,14 @@ export class ScrapFilterPipe implements PipeTransform {
     searchTerm = searchTerm.toLowerCase();
     const matches = [];
     posts.forEach(post => {
-      const postStr = post.title.toLowerCase() + post.summary.toLowerCase() + post.director;
-      const splitedStr = postStr.split(/(?:,| )+/);
-      const ac = new AhoCorasick(splitedStr);
+      const splitedTitle = post.title.toLowerCase().split(/(?:,| )+/);
+      const splitedDirector = post.director.toLowerCase().split(/(?:,| )+/);
+      const keys = splitedTitle.concat(splitedDirector);
+      const keysNoSpaces = keys.map(key =>key.trim());
+      // console.log(keysNoSpaces);
+      const ac = new AhoCorasick(keysNoSpaces);
       const result = ac.search(searchTerm);
-
+      // console.log(result)
       if (result.length !== 0) {
         matches.push(post.id);
       }
@@ -30,6 +35,5 @@ export class ScrapFilterPipe implements PipeTransform {
     } else {
       return posts;
     }
-
   }
 }
