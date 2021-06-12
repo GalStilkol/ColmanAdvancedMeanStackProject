@@ -30,3 +30,7 @@ body {
 .mat-card{
   box-shadow: 1px -1px 20px -1px rgb(93 50 50 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
 }
+
+.custom-spinner circle{
+  stroke:#4caf50  !important;
+}
