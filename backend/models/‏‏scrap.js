@@ -5,21 +5,25 @@ const scrapSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  year: {
+  description: {
     type: String,
     required: true
   },
-  summery: {
-    type: String,
-    required: false
+  ingredients: {
+    type: [],
+    required: true
   },
-  len: {
-    type: String,
-    required: false
+  instructions: {
+    type: [],
+    required: true
   },
-  director: {
+    servings: {
     type: String,
     required: true
+  },
+  imagePath: {
+    type: String,
+    required: false
   }
 });
 

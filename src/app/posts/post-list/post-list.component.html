@@ -2,32 +2,41 @@
 
 <div class="form-group">
   <input type="text" class="form-control" placeholder="Search By Title" [(ngModel)]="searchTermByTitle"/>
-  <input type="text" class="form-control" placeholder="Search By Content" [(ngModel)]="searchTermByContent"/>
-</div>
+  <input style ="margin-top: 10px;" type="text" class="form-control" placeholder="Search By Content" [(ngModel)]="searchTermByContent"/>
+  <input style ="margin-top: 10px;" type="text" class="form-control" placeholder="Search By Estimated Time" [(ngModel)]="searchTermByEstimatedTime"/>
 
-<button *ngIf="searchTermByimage" (click)="searchTermByimage = !searchTermByimage">Includes picture only</button>
-<button *ngIf="!searchTermByimage" (click)="searchTermByimage = !searchTermByimage">Show all</button>
+</div>
+<button class="filter_button" mat-raised-button  *ngIf="searchTermByimage" (click)="searchTermByimage = !searchTermByimage">Includes picture only</button>
+<button class="filter_button" mat-raised-button *ngIf="!searchTermByimage" (click)="searchTermByimage = !searchTermByimage">Show all</button>
 
 <mat-accordion multi="true" *ngIf="posts.length > 0 && !isLoading">
-  <mat-expansion-panel *ngFor="let post of posts.slice().reverse() | PostTitleFilter:searchTermByTitle | postContentFilter:searchTermByContent|postImageFilter:searchTermByimage">
+  <mat-expansion-panel *ngFor="let post of posts.slice().reverse() | PostTitleFilter:searchTermByTitle | postContentFilter:searchTermByContent | postImageFilter:searchTermByimage | postEstimatedTimeFilter:searchTermByEstimatedTime">
     <mat-expansion-panel-header>
-      {{ post.title }}
+      <strong id=post_title>{{ post.title }}</strong>
     </mat-expansion-panel-header>
     <mat-panel-description>
-      Posted By: {{ post.userName }} ,On: {{ post.postDate }}
+      Posted By: {{ post.userName }}, On: {{ post.postDate }}
+      <br>
+
     </mat-panel-description>
-    <p>{{ post.content }}</p>
+    <p class=post_content><strong>Estimated time: </strong>{{ post.estimatedTime }}</p>
+    <p class=post_content>{{ post.content }}</p>
+
     <div class="post-image" *ngIf="post.imagePath!=null">
       <img [src]="post.imagePath" [alt]="post.title">
     </div>
     <mat-action-row>
-      <a mat-button color="primary" [routerLink]="['comments/list/', post.id]">Post comments</a>
+      <button class="nav-link" mat-button [routerLink]="['comments/list/', post.id]">Post Comments</button>
+      <!-- <a mat-button [routerLink]="['comments/list/', post.id]">Post comments</a> -->
 
       <div *ngIf="userIsAuth">
-        <a mat-button color="primary" [routerLink]="['comments/create/', post.id]">COMMENT</a>
+        <button class="nav-link" mat-button [routerLink]="['comments/create/', post.id]">COMMENT</button>
+        <!-- <a mat-button [routerLink]="['comments/create/', post.id]">COMMENT</a> -->
 
         <a *ngIf="userId == post.creator">
-          <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+          <button class="nav-link" mat-button [routerLink]="['/edit', post.id]">EDIT</button>
+          <!-- <a mat-button [routerLink]="['/edit', post.id]">EDIT</a> -->
+
           <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
         </a>
 
@@ -42,3 +51,5 @@
 <p class="form-control">Current post create: {{curentCreateTimes}} &nbsp;&nbsp; ● &nbsp;&nbsp;  Current post delete: {{currentDeleteTimes}}</p>
 
 <a class="form-control" *ngIf="curentCreateTimes>0 && currentDeleteTimes>0"> &nbsp;&nbsp;Created versus deleted:&nbsp;{{(curentCreateTimes/currentDeleteTimes)*100}}% </a>
+
+<!-- denis -->

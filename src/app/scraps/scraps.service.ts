@@ -29,10 +29,11 @@ export class ScrapsService {
             return {
               id: scrap._id,
               title: scrap.title,
-              year: scrap.year,
-              summery: scrap.summery,
-              len: scrap.len,
-              director: scrap.director
+              description : scrap.description,
+              ingredients: scrap.ingredients,
+              instructions : scrap.instructions,
+              servings: scrap.servings,
+              imagePath:scrap.imagePath
             };
           }),
           maxScraps: scrapDate.maxScraps
@@ -50,7 +51,7 @@ export class ScrapsService {
 
   getScrap(id: string) {
     // tslint:disable-next-line: max-line-length
-    return this.http.get<{ _id: string, title: string, year: string, summery: string, len: string, director: string }>(
+    return this.http.get<{ _id: string, title: string, year: string, summary: string, len: string, director: string }>(
       BACKEND_URL + id
     );
   }

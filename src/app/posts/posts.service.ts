@@ -36,7 +36,8 @@ export class PostsService {
               userName: post.userName,
               postDate: post.postDate,
               latitude: post.latitude,
-              longitude: post.longitude
+              longitude: post.longitude,
+              estimatedTime:post.estimatedTime
             };
           }),
           maxPosts: postDate.maxPosts
@@ -54,15 +55,17 @@ export class PostsService {
 
   getPost(id: string) {
     // tslint:disable-next-line: max-line-length
-    return this.http.get<{ _id: string, title: string, content: string, imagePath: string, creator: string, latitude: string, longitude: string }>(
+    return this.http.get<{ _id: string, title: string, content: string, imagePath: string, creator: string, latitude: string, longitude: string ,estimatedTime :string}>(
       BACKEND_URL + id
     );
   }
 
-  addPost(title: string, content: string, image: File, addImage: boolean, latitude: string, longitude: string) {
+  addPost(title: string, content: string, image: File, addImage: boolean, latitude: string, longitude: string, estimatedTime:string) {
     const postDate = new FormData();
     postDate.append('title', title);
     postDate.append('content', content);
+    postDate.append('estimatedTime', estimatedTime);
+
     if (addImage) {
       postDate.append('image', image, title);
     } else {
@@ -81,13 +84,15 @@ export class PostsService {
       });
   }
 
-  updatePost(id: string, title: string, content: string, image: File | string, addImage: boolean, latitude: string, longitude: string) {
+  updatePost(id: string, title: string, content: string, image: File | string, addImage: boolean, latitude: string, longitude: string, estimatedTime:string) {
     let postDate: Post | FormData;
     if (typeof (image) === 'object') {
       postDate = new FormData();
       postDate.append('id', id);
       postDate.append('title', title);
       postDate.append('content', content);
+      postDate.append('estimatedTime', estimatedTime);
+
 
       if (addImage) {
         postDate.append('image', image, title);
@@ -99,14 +104,14 @@ export class PostsService {
     } else {
 
       if (addImage) {
-        postDate = { id, title, content, imagePath: image, creator: null, userName: null, postDate: null, latitude, longitude };
+        postDate = { id, title, content, imagePath: image, creator: null, userName: null, postDate: null, latitude, longitude ,estimatedTime:null};
 
       } else {
-        postDate = { id, title, content, imagePath: null, creator: null, userName: null, postDate: null, latitude, longitude };
+        postDate = { id, title, content, imagePath: null, creator: null, userName: null, postDate: null, latitude, longitude,estimatedTime:null };
 
       }
 
-      postDate = { id, title, content, imagePath: image, creator: null, userName: null, postDate: null, latitude, longitude };
+      postDate = { id, title, content, imagePath: image, creator: null, userName: null, postDate: null, latitude, longitude,estimatedTime:null};
     }
 
     this.http

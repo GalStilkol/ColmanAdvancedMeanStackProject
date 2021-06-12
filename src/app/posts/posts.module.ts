@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { PostTitleFilterPipe } from './posts-title-filter.pipe';
 import { PostContentFilterPipe } from './post-content-filter.pipe';
 import { postImageFilterPipe } from './post-Image-filter.pipe';
+import {PostEstimatedTimeFilterPipe} from './post-estimatedTime-filter.pipe'
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { postImageFilterPipe } from './post-Image-filter.pipe';
     PostListComponent,
     PostTitleFilterPipe,
     PostContentFilterPipe,
-    postImageFilterPipe
+    postImageFilterPipe,
+    PostEstimatedTimeFilterPipe
   ],
   imports: [
     CommonModule,

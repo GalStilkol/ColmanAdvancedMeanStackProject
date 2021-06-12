@@ -20,3 +20,71 @@ form-control {
   border: 2px groove;
   border-radius: 4px;
 }
+.recipe_image {
+  width: 50%
+}
+
+.recipe_image img {
+  width: 100%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+#recipe_content {
+  white-space:pre-line;
+  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Mate', serif;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#recipe_name{
+  font-family: 'Julius Sans One', sans-serif;
+  font-family: 'Mate', serif;
+}
+
+mat-expansion-panel-header{
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+mat-expansion-panel {
+  background-color: white;
+  color: #212529;
+}
+mat-panel-description{
+  margin-top: 10px;
+  color: black;
+}
+
+::ng-deep .mat-select-value {
+  color: #4caf50;
+  font-weight: bold;
+  font-size: 15px;
+  font-family: 'Julius Sans One';
+}
+
+/* ::ng-deep .mat-form-field-appearance-legacy {
+  color: white;
+} */
+
+::ng-deep .mat-option-text {
+  color: white;
+}
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+  color: #4caf50;
+  color: white;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple{
+  background-color: #4caf50;
+}
+
+::ng-deep .mat-paginator-page-size-label, ::ng-deep .mat-paginator-range-label{
+  font-size: 15px;
+}
+
+.mat-paginator {
+  background: #000000bf;
+  color: white;
+}
+.mat-paginator, .mat-paginator-page-size .mat-select-trigger, .mat-form-field, ::ng-deep .mat-option-text {
+  font-family: 'Julius Sans One';
+}
