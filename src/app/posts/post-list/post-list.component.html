@@ -17,9 +17,10 @@
     <mat-panel-description>
       Posted By: {{ post.userName }}, On: {{ post.postDate }}
       <br>
-
+      <br>
+      Estimated time:{{post.estimatedTime}}
+      <br>
     </mat-panel-description>
-    <p class=post_content><strong>Estimated time: </strong>{{ post.estimatedTime }}</p>
     <p class=post_content>{{ post.content }}</p>
 
     <div class="post-image" *ngIf="post.imagePath!=null">
