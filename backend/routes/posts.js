@@ -13,7 +13,7 @@ router.put("/:id", checkAuth, extractFile, PostController.updatePost);
 
 router.get("/sketch", PostController.getCMS);
 
-router.get("/d3title", PostController.getpostTitleD3);
+router.get("/d3estimatedtime", PostController.getEstimatedTimeD3);
 
 router.get("/d3Reduce", PostController.getpostTitleD3MapReduce);
 

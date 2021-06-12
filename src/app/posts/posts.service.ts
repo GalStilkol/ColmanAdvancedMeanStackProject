@@ -126,7 +126,7 @@ export class PostsService {
   }
 
   getTitlesD3() {
-    return this.http.get<{ docs: any[] }>(BACKEND_URL + 'd3title');
+    return this.http.get<{ docs: any[] }>(BACKEND_URL + 'd3estimatedtime');
   }
   getMapReduceD3() {
     return this.http.get<{ docs: any[] }>(BACKEND_URL + 'd3Reduce');

@@ -160,10 +160,11 @@ exports.deletePost = (req, res, next) => {
   }).catch(error => {});
 };
 //group by of the posts titles to d3 graph
-exports.getpostTitleD3 = (req, res, next) => {
+exports.getEstimatedTimeD3 = (req, res, next) => {
   Post.aggregate([{
     "$group": {
-      _id: "$title",
+      // _id: "$title",
+      _id: "$estimatedTime",
       count: {
         $sum: 1
       }
