@@ -19,9 +19,9 @@ mongoose.connect("mongodb://localhost:27017/tester")
   console.log('Connection failed');
 });
 startindex =23750;
-amounttoscrap=150;
+amounttoshow= 50;
 
-for(index =startindex;index <startindex+amounttoscrap;index++){
+for(index =startindex;index <startindex+amounttoshow;index++){
   recipeurl="https://www.allrecipes.com/recipe/";
 
 async function someAsyncFunc() {
