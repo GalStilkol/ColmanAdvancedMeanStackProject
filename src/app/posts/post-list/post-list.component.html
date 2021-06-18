@@ -14,11 +14,11 @@
     <mat-expansion-panel-header>
       <strong id=post_title>{{ post.title }}</strong>
     </mat-expansion-panel-header>
-    <mat-panel-description>
+    <mat-panel-description style="font-weight: bold">
       Posted By: {{ post.userName }}, On: {{ post.postDate }}
       <br>
       <br>
-      Estimated time:{{post.estimatedTime}}
+      Estimated time:{{post.estimatedTime}} minutes
       <br>
     </mat-panel-description>
     <p class=post_content>{{ post.content }}</p>
