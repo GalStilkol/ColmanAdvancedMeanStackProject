@@ -17,7 +17,7 @@ export class Postd3Component implements OnInit {
   constructor(private postService: PostsService) { }
 // get the data to the d3 graph
   ngOnInit() {
-    this.postService.getTitlesD3().subscribe(d => {
+    this.postService. getEstimatedtimeD3().subscribe(d => {
       this.data = d.docs;
       if (this.data.length === 0) {
         this.show = false;

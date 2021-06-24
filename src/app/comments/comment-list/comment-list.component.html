@@ -9,10 +9,10 @@
 
   <mat-expansion-panel
     *ngFor="let comment of commentsOfPost.slice().reverse() | commentTitleFilter:searchTermByTitle | commentContentFilter:searchTermByContent | commentUserNameFilter:searchTermByUserName">
-    <mat-expansion-panel-header>
+    <mat-expansion-panel-header style="font-weight: bold">
       <strong id=post_title>{{ comment.title }}</strong>
     </mat-expansion-panel-header>
-    <mat-panel-description>
+    <mat-panel-description style="font-weight: bold">
       Commented By: {{ comment.userName }} ,On: {{ comment.commentDate }}
     </mat-panel-description>
     <p id=post_content>{{ comment.content }}</p>
