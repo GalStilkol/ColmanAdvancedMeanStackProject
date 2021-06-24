@@ -125,7 +125,7 @@ export class PostsService {
     return this.http.delete(BACKEND_URL + postId);
   }
 
-  getEstimatedtimeD3() {
+  getTitlesD3() {
     return this.http.get<{ docs: any[] }>(BACKEND_URL + 'd3estimatedtime');
   }
   getMapReduceD3() {

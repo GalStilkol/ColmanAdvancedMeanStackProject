@@ -16,9 +16,10 @@
       <textarea matInput rows="4" formControlName="content" placeholder="Post Content"></textarea>
       <mat-error *ngIf="form.get('content').invalid">Please enter a post description.</mat-error>
     </mat-form-field>
+    <!-- denis -->
     <mat-form-field>
-      <textarea matInput rows="4" formControlName="estimatedTime" placeholder="Post Estimated Time in minutes"></textarea>
-      <mat-error *ngIf="form.get('estimatedTime').invalid">Please enter an estimated time.</mat-error>
+      <textarea matInput rows="4" formControlName="estimatedTime" placeholder="Post estimatedTime"></textarea>
+      <mat-error *ngIf="form.get('content').invalid">Please enter a estimated time.</mat-error>
     </mat-form-field>
     <button id=submit_button mat-raised-button type="submit">Save Post</button>
   </form>

@@ -60,8 +60,8 @@ export class ChatComponent implements OnInit , OnDestroy {
     }
 
 
-  ngOnDestroy() {
-    this.leave();
-  }
+    ngOnDestroy() {
+      this.leave();
+    }
 
 }
