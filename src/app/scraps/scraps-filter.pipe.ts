@@ -14,17 +14,12 @@ export class ScrapFilterPipe implements PipeTransform {
     if (!posts || !searchTerm) {
       return posts;
     }
-    searchTerm = searchTerm.toLowerCase();
+    const keys = searchTerm.toLowerCase().split(/(?:,| )+/).map(key =>key.trim());
+    const ac = new AhoCorasick(keys);
     const matches = [];
     posts.forEach(post => {
-      const splitedTitle = post.title.toLowerCase().split(/(?:,| )+/);
-      const splitedDescription = post.description.toLowerCase().split(/(?:,| )+/);
-      const keys = splitedTitle.concat(splitedDescription);
-      const keysNoSpaces = keys.map(key =>key.trim());
-      // console.log(keysNoSpaces);
-      const ac = new AhoCorasick(keysNoSpaces);
-      const result = ac.search(searchTerm);
-      // console.log(result)
+      const titleAndDescription = post.title.toLowerCase() + ' ' + post.description.toLowerCase()
+      const result = ac.search(titleAndDescription);
       if (result.length !== 0) {
         matches.push(post.id);
       }
