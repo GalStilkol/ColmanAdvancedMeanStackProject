@@ -24,7 +24,7 @@ exports.createPost = (req, res, next) => {
     imagePath: img,
     creator: req.userData.userId,
     userName: req.userData.email.split('@')[0],
-    postDate: new Date().toLocaleString(),
+    postDate: new Date().toISOString(),
     latitude: req.body.latitude,
     longitude: req.body.longitude,
     estimatedTime: req.body.estimatedTime
@@ -40,8 +40,9 @@ exports.createPost = (req, res, next) => {
       });
     })
     .catch(error => {
+    
       res.status(500).json({
-        message: "Creating a post failed!"
+        message: error
       });
     });
 };
