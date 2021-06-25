@@ -18,7 +18,7 @@
     </mat-form-field>
     <mat-form-field>
       <textarea matInput rows="4" formControlName="estimatedTime" placeholder="Post Estimated Time in minutes"></textarea>
-      <mat-error *ngIf="form.get('content').invalid">Please enter an estimated time.</mat-error>
+      <mat-error *ngIf="form.get('estimatedTime').invalid">Please enter an estimated time.</mat-error>
     </mat-form-field>
     <button id=submit_button mat-raised-button type="submit">Save Post</button>
   </form>
